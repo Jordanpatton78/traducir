@@ -9,17 +9,17 @@ function draw(){
     ctx.drawImage(video,0,0,300,100);
     requestAnimationFrame(draw)
 }
-var snapshotCanvas = document.getElementById('canvas');
+var snapshotCanvas = document.getElementById('snapshot');
 var captureButtoneng = document.getElementById('captureeng');
 var handleSuccess = function(stream) {
     video.srcObject = stream;
     };
 var num = 1;
 captureButtoneng.addEventListener('click', function() {
-    var context = canvas.getContext('2d');
+    var context = snapshot.getContext('2d');
     context.drawImage(video, 100, 300, 600, 200, 0, 0, snapshotCanvas.width,
         snapshotCanvas.height);
-    const url = canvas.toDataURL("image/png");
+    const url = snapshot.toDataURL("image/png");
     Tesseract
         .recognize(url, {
             lang: 'eng'
