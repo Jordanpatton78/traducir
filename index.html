@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="index.css"/>
         <script src="https://cdn.rawgit.com/naptha/tesseract.js/1.0.7/dist/tesseract.js"></script>
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+        <py-script src="traducir.py"></py-script>
     </head>
     <body>
         <div align="center">
@@ -14,7 +16,7 @@
             <canvas id="canvas" width="300" height="100"></canvas>
             </div>
             <div class="button" align="center">
-                <button id="captureeng">Capture</button>
+                <button id="captureeng" pys-onClick="change">Capture</button>
             </div>
             <div id="msg" align="center"></div>
             <br>
