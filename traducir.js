@@ -6,7 +6,7 @@ requestAnimationFrame(draw)
 function draw(){
     canvas.width = 300;
     canvas.height = 100;
-    ctx.drawImage(video,100,300,600,200,0,0,300,100);
+    ctx.drawImage(video,100,300,600,200,0,0,canvas.width,canvas.height);
     requestAnimationFrame(draw)
 }
 var captureButtoneng = document.getElementById('captureeng');
