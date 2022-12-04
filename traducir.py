@@ -1,3 +1,5 @@
+import js
+
 import pickle
 
 class Translator:
@@ -6,7 +8,9 @@ class Translator:
         self.language_file = language_file
 
     def add_word(self,pickle_object, word):
-        user_input = input(f"What is the translation of {word}? ")
+        new_input = document.createElement('input')
+        user_input = Element('new_input').value
+        new_div = document.createElement('div')
         pickle_object[word] = user_input
         with open(self.language_file,'wb') as pickle_out:
             pickle.dump(pickle_object, pickle_out)
@@ -16,14 +20,14 @@ class Translator:
     def translate(self):
         with open(self.language_file,'rb') as pickle_in:
             pickle_object = pickle.load(pickle_in)
-        english_input = input("What word would you like translated? ")
+        english_input = document.getElementById("msg")
         sentence_output = ""
 
         for word in english_input.split():
             if word in pickle_object:
                 sentence_output += pickle_object[word] + " "
             else:
-                user_input = input("Unable to find translation. Do you know the translation? (y/n)")
+                
                 if user_input == "y":
                     self.add_word(pickle_object,word)
                 else:
@@ -51,14 +55,14 @@ class FrenchTranslator(Translator):
     def translate(self):
         super().translate()
 
-user_input = input("What language would you like to translate to? ")
+user_input = "Spanish"
 if user_input == "spanish" or user_input == "Spanish":
     translator = SpanishTranslator('spanish_file.pkl')
 elif user_input == "French" or user_input == "french":
     translator = FrenchTranslator('french_file.pkl')
 while True:
     translator.translate()
-    user_input = input("Would you like to translate another word? (y/n)")
+
     if user_input == "n":
         break
     else:
